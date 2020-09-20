@@ -97,6 +97,7 @@ input[type = "text"]:hover, input[type = "email"]:hover, input[type = "password"
 }
 #second{
 
+	font-family: 'Bellota-BoldItalic', sans-serif;
 	display: none;
 }
 
