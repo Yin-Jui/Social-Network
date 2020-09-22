@@ -28,7 +28,6 @@ if(isset($_SESSION['username'])){
 
 	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<link rel="stylesheet" type="text/css" href="path/to/font-awesome/css/font-awesome.min.css">
 </head>
 <body>
  
@@ -37,10 +36,11 @@ if(isset($_SESSION['username'])){
  		<div class = "logo">
  			
  			<a href="index.php">JimBaz</a>
+ 		</div>
 
  			<nav>
 
- 				<a href="#">
+ 				<a href="<?php echo $userLoggedIn; ?>">
  					<?php 
  						echo $user['first_name'];
  					 ?>
@@ -61,8 +61,11 @@ if(isset($_SESSION['username'])){
  				<a href="#">
  					<i class="fa fa-cog" aria-hidden="true"></i>
  				</a>
-
+ 				<a href="includes/handlers/logout.php">
+ 					<i class="fa fa-sign-out" aria-hidden="true"></i>
+ 				</a>
  			</nav>
 
- 		</div>
  	</div>
+
+ 	<div class = "wrapper">  <!-- close the div in index.php-->
