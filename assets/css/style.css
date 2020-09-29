@@ -67,6 +67,12 @@ nav a:hover{
 	text-decoration: none;
 }
 
+a{
+
+	color: #0652DD;
+	text-decoration: none;
+}
+
 .wrapper{
 
 	margin: 0 auto;
@@ -173,4 +179,50 @@ nav a:hover{
 
 .post_profile_pic img{
 	border-radius: 20px;
+}
+
+#comment_iframe{
+
+	height: 150px;
+	
+    width: 100%; 
+}
+
+.comment_section{
+
+	padding: 0 5px 5px 0px;
+}
+
+.comment_section img{
+
+	margin:0 3px 3px 0;
+	border-radius: 3px;
+}
+
+#comment_form textarea{
+
+	border-radius: 5px;
+	height:45px;
+	width:80%;
+	font-size: 14px;
+	margin: 3px 3px 3px 0;
+}
+
+#comment_form input[type = "submit"]{
+
+	border-radius: 15px;
+	height:30px;
+	width:13%;
+	margin-top: 13px;
+	position: absolute;
+	font-family: 'Bellota-BoldItalic', sans-serif;
+}
+
+.newsfeedPostOptions{
+
+	margin-top: 17px;
+	padding: 0px;
+	text-decoration: none;
+	color:#0652DD;
+	border:none;
 }

@@ -22,7 +22,8 @@ if(isset($_POST['post'])){
 			 ?>
 			</a>
 			<br>
-			<?php echo "Posts: " . $user['num_posts']. "<br>"; 
+			<br>
+			<?php echo "Posts: " . $user['num_posts']. "<br>" . "<br>"; 
 			echo "Likes: " . $user['num_likes'];
 
 			?>
