@@ -166,7 +166,7 @@ a{
 
 .status_post{
 	width: 96%;
-    font-size: 15px;
+    font-size: 14px;
     padding: 0px 5px;
     min-height: 75px;
 }
@@ -225,4 +225,28 @@ a{
 	text-decoration: none;
 	color:#0652DD;
 	border:none;
+}
+.newsfeedPostOptions iframe{
+	border: 0px;
+    height: 17px;
+    width: 120px;
+}
+
+
+
+.comment_like{
+	background-color: #fff;
+	border:none;
+	font-size: 14px;
+	padding:0;
+	color: #0652DD;
+	height: auto;
+	width: auto;
+	margin: 0;
+}
+
+.like_value{
+
+	display: inline;
+	font-size: 14px;
 }
