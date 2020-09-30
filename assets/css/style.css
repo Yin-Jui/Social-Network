@@ -356,3 +356,54 @@ a{
 	margin: 10px 0px 0px 20px;
 	color: #fff;
 }
+
+#message_textarea {
+	width: 80%;
+	margin-right: 8px;
+	border-radius: 5px;
+	border: 1px solid #D3D3D3;
+	font-size: 12px;
+}
+
+#message_submit {
+	height: 30px;
+	width: 85px;
+	margin: 20px 0px 0px 0px;
+	position: absolute;
+	border:none;
+	background-color: #ff5252;
+	color: #fff;
+	border-radius: 15px;
+	font-family: 'Bellota-BoldItalic', sans-serif;
+	text-shadow: #73B6E2 0.5px 0.5px 0px;
+}
+
+.message#blue {
+	background-color: #3498db;
+	border-color: #2980b9;
+	float: right;
+	margin-bottom: 7px;
+	border-radius: 20px;
+    padding: 4px;
+    font-size:20px;
+    color: #fff;
+}
+.message#green {
+	background-color: #2ecc71;
+	border-color: #27ae60;
+	float: left;
+	margin-bottom: 7px;
+	border-radius: 20px;
+    padding: 4px;
+    font-size: 20px;
+    color: #fff;
+
+}
+
+.loaded_messages {
+	height: 65%;
+	min-height: 300px;
+	max-height: 400px;
+	overflow: scroll;
+	margin-bottom: 10px;
+}
