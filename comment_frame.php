@@ -124,7 +124,7 @@
 		else if($interval->d >= 1){
 
 			if($interval->d == 1)
-				$time_message = $interval->d . "Yesterday";
+				$time_message = "Yesterday";
 			else{
 
 				$time_message = $interval->d . "days ago";

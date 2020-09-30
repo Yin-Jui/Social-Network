@@ -1,6 +1,8 @@
 <?php
 
 require 'Config/config.php';
+include("includes/classes/User.php");
+include("includes/classes/Post.php");
 
 if(isset($_SESSION['username'])){
 
@@ -22,10 +24,15 @@ if(isset($_SESSION['username'])){
 	<!-- Javascript-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<script src="assets/js/bootstrap.js"></script>
+	<script src="assets/js/bootbox.min.js"></script>
+	<script src="assets/js/Social.js"></script>
 	<script src="https://kit.fontawesome.com/8b5ecfaba5.js" crossorigin="anonymous"></script>
+	<script src="assets/js/jquery.Jcrop.js"></script>
+	<script src="assets/js/jcrop_bits.js"></script>
+
 
 	<!-- CSS -->
-
+	<link rel="stylesheet" href="assets/css/jquery.Jcrop.css" type="text/css" />
 	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
@@ -55,7 +62,7 @@ if(isset($_SESSION['username'])){
  				<a href="#">
  					<i class="fa fa-bell-o" aria-hidden="true"></i>
  				</a>
- 				<a href="#">
+ 				<a href="request.php">
  					<i class="fa fa-users" aria-hidden="true"></i>
  				</a>
  				<a href="#">

@@ -74,7 +74,6 @@ a{
 }
 
 .wrapper{
-
 	margin: 0 auto;
 	top: 50px;
 	position: relative;
@@ -100,11 +99,9 @@ a{
 }
 
 .user_details_left_right{
-	width:125px;
-	display: inline-block;
+	width: 120px;
+	display: inline-table;
 	position: absolute;
-	font-size: 20px;
-	top:25px;
 }
 
 .user_details img{
@@ -169,6 +166,7 @@ a{
     font-size: 14px;
     padding: 0px 5px;
     min-height: 75px;
+    cursor: pointer;
 }
 
 .post_profile_pic{
@@ -249,4 +247,112 @@ a{
 
 	display: inline;
 	font-size: 14px;
+}
+
+.profile_left {
+	top: 0px;
+	width: 17%;
+	max-width: 240px;
+	min-width: 130px;
+	height: 100%;
+	float: left;
+	position: relative;
+	background-color: #ff5252;
+	border-right: 10px solid #ff6b81;
+	color: #ff5252;
+	margin-right: 20px;
+	min-height: 100%;
+}
+.profile_info{
+	
+	width: 100%;
+	padding: 10px 0 10px 0;
+	color: #fff;
+}
+
+.profile_info p{
+
+	margin: 0 0 0 20px;
+	word-wrap: break-word;
+}
+.profile_left img{
+
+	min-width: 80px;
+    width: 55%;
+    margin:20px;
+    border:5px solid #ff6b81;
+    border-radius: 100px;
+}
+
+.danger {
+	background-color: #e74c3c;
+}
+.warning {
+	background-color: #f0ad4e;
+}
+.default {
+	background-color: #bdc3c7;
+}
+.success {
+	background-color: #2ecc71;
+}
+.info {
+	background-color: #3498db;
+}
+.deep_blue {
+	background-color: #0043f0;
+}
+
+.profile_left input[type="submit"] {
+	width: 90%;
+	height: 30px;
+	border-radius: 5px;
+	margin: 7px 0 15px 7px;
+	border: none;
+	color: #fff;
+}
+
+#accept_button {
+	width: 20%;
+	height: 28px;
+	border-radius: 5px;
+	margin: 5px;
+	border: none;
+	color: #fff;
+	background-color: #2ecc71;
+}
+#ignore_button {
+	width: 20%;
+	height: 28px;
+	border-radius: 5px;
+	margin: 5px;
+	border: none;
+	color: #fff;
+	background-color: #e74c3c;
+}
+
+.delete_button {
+	height: 19px;
+	width: 15px;
+	padding: 0;
+	float: right;
+	border-radius: 4px;
+	right: -15px;
+	position: relative;
+}
+
+.profile_main_column {
+	min-width: 675px;
+	float: left;
+	width: 70%;
+	z-index: -1;
+	padding-left: 20px;
+	margin-left: 40px;
+
+}
+
+.profile_info_buttom {
+	padding: 10px 0px 10px 0px;
+	margin: 10px 0px 0px 20px;
+	color: #fff;
 }
