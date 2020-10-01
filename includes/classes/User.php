@@ -55,7 +55,7 @@
 
 			$usernameComma = "," . $username_to_check . ",";
 
-			if(strStr($this->user['friend_array'], $usernameComma) || $username_to_check == $this->user['username']){
+			if(strStr($this->user['friend_array'], $usernameComma)){
 				return true;
 			}//check if a string is inside another string
 

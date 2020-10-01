@@ -50,13 +50,13 @@ if(isset($_POST['post_message'])){
 
 			if($user_to != "new"){
 				echo "<h4> You and <a href='$user_to'>" . $user_to_obj->getFirstAndLastName() . "</a></h4><hr><br>";
-				echo "<div class = 'loaded_messages'>";
+				echo "<div class = 'loaded_messages' id='scroll_messages'>";
 				echo $message_obj->getMessages($user_to);
 				echo "</div>";
 			}
 			else{
 
-				echo"<h4>new Message</h4>";
+				echo"<h4>New Message</h4>";
 			}
 		 ?>
 
@@ -69,7 +69,7 @@ if(isset($_POST['post_message'])){
 		 			if($user_to == "new"){
 		 				echo "Select the friend you would like to message<br><br>";
 
-		 				echo "To: <input type='text'>";
+		 				?>To: <input type='text' onkeyup='getUser(this.value, "<?php echo $userLoggedIn;?>")' name = 'q' placeholder = 'Name' autocomplete='off' id='search_text_input'><?php
 
 		 				echo "<div class = 'results'></div>";
 		 			}
@@ -83,4 +83,20 @@ if(isset($_POST['post_message'])){
 		 	</form>
 
 		 </div>
+
+		 <script>
+		 	
+		 	var div = document.getElementById("scroll_messages");
+		 	div.scrollTop = div.scrollHeight;
+		 </script>
+
 	</div>
+
+	<div class = "user_details column" id = "conversations">
+		 	<h4>Conversations</h4>
+		 	<div class ="loaded_conversations">
+		 		<?php echo $message_obj->getConvos();?>
+		 	</div>
+		 	<br>
+		 	<a href="messages.php?u=new">New Message</a>
+		 </div>

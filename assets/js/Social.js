@@ -28,3 +28,16 @@ $(document).ready(function() {
 
 
 });
+
+function getUser(value, user){
+//send request to ajax_friend_search.php with query and userLoggedIn as parameters. When it returns, do function(data).
+	$.post("includes/handlers/ajax_friend_search.php", {query:value, userLoggedIn:user}, function(data){
+
+		$(".results").html(data);
+
+
+	});
+	
+		
+	
+}
