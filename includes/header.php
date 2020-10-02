@@ -57,6 +57,10 @@ if(isset($_SESSION['username'])){
  					//Unread notifications
  					$notifications = new Notification($con, $userLoggedIn);
  					$num_notifications = $notifications->getUnreadNumber();
+ 					//Unread friend requests
+ 					$user_obj = new User($con, $userLoggedIn);
+ 					$num_resquests = $user_obj->getNumOfFriendRequests();
+
  				?>
 
  				<a href="<?php echo $userLoggedIn; ?>">
@@ -72,7 +76,7 @@ if(isset($_SESSION['username'])){
 				echo "<span class = 'notification_badge' id='unread_message'>" . $num_messages . "</span>";
 				?>
 			</a>
- 				<a href="#">
+ 				<a href="index.php">
  					<i class="fa fa-home" aria-hidden="true"></i>
  				</a>
  				<a href="javascript:void(0);" onclick="getDropdownData('<?php echo $userLoggedIn; ?>', 'notification')">
@@ -83,7 +87,11 @@ if(isset($_SESSION['username'])){
 					?>
  				</a>
  				<a href="request.php">
- 					<i class="fa fa-users" aria-hidden="true"></i>
+ 				<i class="fa fa-users" aria-hidden="true"></i>
+ 					<?php
+						if($num_resquests > 0)
+						echo "<span class = 'notification_badge' id='unread_requests'>" . $num_resquests . "</span>";
+					?>
  				</a>
  				<a href="#">
  					<i class="fa fa-cog" aria-hidden="true"></i>

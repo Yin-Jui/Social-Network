@@ -19,6 +19,12 @@
 			return $row['num_posts'];
 		}
 
+		public function getNumOfFriendRequests(){
+			$username = $this->user['username'];
+			$query = mysqli_query($this->con,"SELECT * FROM friend_requests WHERE user_to='$username'");
+			return mysqli_num_rows($query);
+		}
+
 		public function getFirstAndLastName(){
 
 
