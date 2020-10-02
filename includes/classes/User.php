@@ -51,16 +51,16 @@
 			else return false;
 		}
 
-		public function isFriend($username_to_check){
+	public function isFriend($username_to_check) {
+		$usernameComma = "," . $username_to_check . ",";
 
-			$usernameComma = "," . $username_to_check . ",";
-
-			if(strStr($this->user['friend_array'], $usernameComma)){
-				return true;
-			}//check if a string is inside another string
-
-			else return false;
+		if((strstr($this->user['friend_array'], $usernameComma) || $username_to_check == $this->user['username'])) {
+			return true;
 		}
+		else {
+			return false;
+		}
+	}
 
 		public function didReceiveRequest($user_from){
 			$user_to = $this->user['username'];

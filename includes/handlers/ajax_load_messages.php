@@ -2,6 +2,7 @@
 include("../../Config/config.php");
 include("../classes/User.php");
 include("../classes/Message.php");
+include("../classes/Notification.php");
 
 
 $limit = 4;

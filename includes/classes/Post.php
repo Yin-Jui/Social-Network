@@ -39,6 +39,12 @@
 
 				//Insert notification 
 
+				if($user_to != 'none'){ //if post something on yourself profile, there will be no notifications.
+
+					$notification = new Notification($this->con, $added_by);
+					$notification->insertNotification($returned_id, $user_to, "profile_post");
+				}
+
 				//Update post count for users
 
 				$num_posts = $this->user_obj->getNumPosts();

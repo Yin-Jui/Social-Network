@@ -28,6 +28,7 @@
 
 	include("includes/classes/User.php");
 	include("includes/classes/Post.php");
+	include("includes/classes/Notification.php");
 
 	require 'Config/config.php';
 
@@ -66,20 +67,27 @@
 		$insert_user = mysqli_query($con, "INSERT INTO likes VALUES(NULL, '$userLoggedIn', '$post_id')");
 
 		//Insert Notification
+		if($user_liked != $userLoggedIn){
+
+			$notification = new Notification($con, $userLoggedIn);
+			$notification->insertNotification($post_id, $user_liked, "like");
+		}
+
+
 	}
 	//Unlike button
 	if(isset($_POST['unlike_button'])){
 
-	$total_likes--;
-	$query = mysqli_query($con, "UPDATE posts SET likes='$total_likes' WHERE id = '$post_id'");
-	$total_user_likes--;
-	$user_likes = mysqli_query($con, "UPDATE Users SET num_likes = '$total_user_likes' WHERE username = '$user_liked'");
-	$insert_user = mysqli_query($con, "DELETE FROM likes WHERE username = '$userLoggedIn' AND post_id = '$post_id'");
-	}
+		$total_likes--;
+		$query = mysqli_query($con, "UPDATE posts SET likes='$total_likes' WHERE id = '$post_id'");
+		$total_user_likes--;
+		$user_likes = mysqli_query($con, "UPDATE Users SET num_likes = '$total_user_likes' WHERE username = '$user_liked'");
+		$insert_user = mysqli_query($con, "DELETE FROM likes WHERE username = '$userLoggedIn' AND post_id = '$post_id'");
+		}
 
-	//Check for previous likes
-	$check_query = mysqli_query($con, "SELECT * FROM likes WHERE username = '$userLoggedIn' AND post_id = '$post_id'");
-	$num_rows = mysqli_num_rows($check_query);
+		//Check for previous likes
+		$check_query = mysqli_query($con, "SELECT * FROM likes WHERE username = '$userLoggedIn' AND post_id = '$post_id'");
+		$num_rows = mysqli_num_rows($check_query);
 
 	if($num_rows > 0){
 		echo'<form action="like.php?post_id=' . $post_id . '"method="POST">
