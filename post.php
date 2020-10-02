@@ -1,7 +1,7 @@
  <?php  
 include("includes/header.php");
 
-if(isset($_GET['id'])) {
+if(isset($_GET['id'])) { //id is sent from the link column of notifications table.
 	$id = $_GET['id'];
 }
 else {
