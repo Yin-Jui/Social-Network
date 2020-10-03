@@ -31,7 +31,7 @@ if($query != "") {
 		else {
 			$mutual_friends = "";
 		}
-		if($user->isFriend($row['username'])) {
+		if($row['username'] != $userLoggedIn && $user->isFriend($row['username'])) {
 			
 			echo "<div class='resultDisplay'>
 					<a href='messages.php?u=" . $row['username'] . "' style='color: #000'>

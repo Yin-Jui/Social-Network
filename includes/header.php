@@ -52,10 +52,9 @@ if(isset($_SESSION['username'])){
  			
  			<form action="search.php" method="GET" name="search_form"> <!--GET:passing the parameter in URL, action: where we send the data to -->
 
- 				<input type="text" onkeyup = "giveLiveSearchUsers(this.value, '<?php echo $userLoggedIn; ?>')" name = "q" placeholder="Search..." autocomplete="off" id="search_text_input">
+ 				<input type="text" onkeyup = "getLiveSearchUsers(this.value, '<?php echo $userLoggedIn; ?>')" name = "q" placeholder="Search..." autocomplete="off" id="search_text_input">
 
  				<div class = "button_holder">
- 					
  					<img src = "assets/images/icons/magnifying_glass.png">
  				</div>
  				
