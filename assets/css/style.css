@@ -88,6 +88,7 @@ a{
     border-radius: 5px;
     box-shadow: 2px 2px 2px 2px #f7c88a;
     z-index: -1;
+    color:#555;
 }
 
 .user_details{

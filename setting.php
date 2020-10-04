@@ -23,7 +23,7 @@ include("includes/form_handlers/settings_handler.php");
 	$email = $row['email'];
 	?>
 
-	<form action="settings.php" method="POST">
+	<form action="setting.php" method="POST">
 		First Name: <input type="text" name="first_name" value="<?php echo $first_name; ?>" id="settings_input"><br>
 		Last Name: <input type="text" name="last_name" value="<?php echo $last_name; ?>" id="settings_input"><br>
 		Email: <input type="text" name="email" value="<?php echo $email; ?>" id="settings_input"><br>
@@ -34,7 +34,7 @@ include("includes/form_handlers/settings_handler.php");
 	</form>
 
 	<h4>Change Password</h4>
-	<form action="settings.php" method="POST">
+	<form action="setting.php" method="POST">
 		Old Password: <input type="password" name="old_password" id="settings_input"><br>
 		New Password: <input type="password" name="new_password_1" id="settings_input"><br>
 		New Password Again: <input type="password" name="new_password_2" id="settings_input"><br>
@@ -45,7 +45,7 @@ include("includes/form_handlers/settings_handler.php");
 	</form>
 
 	<h4>Close Account</h4>
-	<form action="settings.php" method="POST">
+	<form action="setting.php" method="POST">
 		<input type="submit" name="close_account" id="close_account" value="Close Account" class="danger settings_submit">
 	</form>
 
