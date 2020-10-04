@@ -67,14 +67,14 @@ else {
 				else if($user_obj->didReceiveRequest($row['username']))
 					$button = "<input type='submit' name='" . $row['username'] . "' class='warning' value='Respond to request'>";
 				else if($user_obj->didSendRequest($row['username']))
-					$button = "<input type='submit' class='default' value='Request Sent'>";
+					$button = "<input type='submit' name='" . $row['username'] . "'class='default' value='Request Sent'>";
 				else 
 					$button = "<input type='submit' name='" . $row['username'] . "' class='success' value='Add Friend'>";
 
 				$mutual_friends = $user_obj->getMutualFriend($row['username']) . " friends in common";
 
 
-				//Button forms //when clicking button
+				//Button forms //when clicking buttons
 				if(isset($_POST[$row['username']])) {  //we name each button by its username
 
 					if($user_obj->isFriend($row['username'])) {
@@ -85,7 +85,7 @@ else {
 						header("Location: requests.php");
 					}
 					else if($user_obj->didSendRequest($row['username'])) {
-
+						header("Location:" . $row['username']);
 					}
 					else {
 						$user_obj->sendRequest($row['username']);

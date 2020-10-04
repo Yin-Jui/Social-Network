@@ -592,14 +592,13 @@ a{
 #search_hr {
 	margin-bottom: 0px;
 }
-#main_column_search{
+
+#profile_page_name{
 
 	position: relative;
-	left: 180px;
-	width: 70%;
-	z-index: -1;
-	min-height: 160px;
-
+    top: -19px;
+    font-size: 20px;
+    color: #ecdac3;
 }
 
 
