@@ -11,7 +11,7 @@
 
 		}
 
-		public function submitPost($body, $user_to){
+		public function submitPost($body, $user_to, $imageName){
 
 			$body = strip_tags($body); // remove html tags
 			$body = mysqli_real_escape_string($this->con, $body);  //escape special character to  prevent from misunderstandinf of SQL code
@@ -22,6 +22,20 @@
 			$check_empty = preg_replace('/\s+/', '', $body);  // replace spaces with nothing // replace a regular expression
 
 			if($check_empty != ""){
+
+				$body_array = preg_split("/\s+/", $body);
+
+				foreach($body_array as $key => $value){ //$key: index number, $value: value of the array
+
+					if(strpos($value, "www.youtube.com/watch?v=") !== false){  //check if the string contains...
+						$link = preg_split("!&!", $value);
+						$value = preg_replace("!watch\?v=!", "embed/", $link[0]); // \ cancel any character in front of it.
+						$value = "<br><iframe width = \'420\' height = \'315\'src=\'". $value . "\'></iframe><br>";
+						$body_array[$key] = $value;
+					} 
+				}
+
+				$body = implode(" ", $body_array); //split the array with " " 
 
 				//Current date and time
 
@@ -34,7 +48,7 @@
 					$user_to = 'none';
 				}
 
-				$query = mysqli_query($this->con, "INSERT INTO posts VALUES(NULL, '$body', '$added_by', '$user_to', '$date_added','no', 'no', '0')");
+				$query = mysqli_query($this->con, "INSERT INTO posts VALUES(NULL, '$body', '$added_by', '$user_to', '$date_added','no', 'no', '0', '$imageName')");
 				$returned_id = mysqli_insert_id($this->con); // return the id of the post just submitted.
 
 				//Insert notification 
@@ -51,8 +65,83 @@
 				$num_posts++;
 				$update_query = mysqli_query($this->con, "UPDATE Users SET num_posts = '$num_posts' WHERE username = '$added_by'");
 
+			$stopWords = "a about above across after again against all almost alone along already
+			 also although always among am an and another any anybody anyone anything anywhere are 
+			 area areas around as ask asked asking asks at away b back backed backing backs be became
+			 because become becomes been before began behind being beings best better between big 
+			 both but by c came can cannot case cases certain certainly clear clearly come could
+			 d did differ different differently do does done down down downed downing downs during
+			 e each early either end ended ending ends enough even evenly ever every everybody
+			 everyone everything everywhere f face faces fact facts far felt few find finds first
+			 for four from full fully further furthered furthering furthers g gave general generally
+			 get gets give given gives go going good goods got great greater greatest group grouped
+			 grouping groups h had has have having he her here herself high high high higher
+		     highest him himself his how however i im if important in interest interested interesting
+			 interests into is it its itself j just k keep keeps kind knew know known knows
+			 large largely last later latest least less let lets like likely long longer
+			 longest m made make making man many may me member members men might more most
+			 mostly mr mrs much must my myself n necessary need needed needing needs never
+			 new new newer newest next no nobody non noone not nothing now nowhere number
+			 numbers o of off often old older oldest on once one only open opened opening
+			 opens or order ordered ordering orders other others our out over p part parted
+			 parting parts per perhaps place places point pointed pointing points possible
+			 present presented presenting presents problem problems put puts q quite r
+			 rather really right right room rooms s said same saw say says second seconds
+			 see seem seemed seeming seems sees several shall she should show showed
+			 showing shows side sides since small smaller smallest so some somebody
+			 someone something somewhere state states still still such sure t take
+			 taken than that the their them then there therefore these they thing
+			 things think thinks this those though thought thoughts three through
+	         thus to today together too took toward turn turned turning turns two
+			 u under until up upon us use used uses v very w want wanted wanting
+			 wants was way ways we well wells went were what when where whether
+			 which while who whole whose why will with within without work
+			 worked working works would x y year years yet you young younger
+			 youngest your yours z lol haha omg hey ill iframe wonder else like 
+             hate sleepy reason for some little yes bye choose";
+
+             //Convert stop words into array - split at white space
+			$stopWords = preg_split("/[\s,]+/", $stopWords);
+
+			//Remove all punctionation
+			$no_punctuation = preg_replace("/[^a-zA-Z 0-9]+/", "", $body); //replace anything that is not a-z A-Z 0-9
+
+			//Predict whether user is posting a url. If so, do not check for trending words
+			if(strpos($no_punctuation, "height") === false && strpos($no_punctuation, "width") === false
+				&& strpos($no_punctuation, "http") === false && strpos($no_punctuation, "youtube") === false){
+				//Convert users post (with punctuation removed) into array - split at white space
+
+				$keywords = preg_split("/[\s,]+/", $no_punctuation);//split with any space including new line
+
+				foreach($stopWords as $value) {
+					foreach($keywords as $key => $value2){
+						if(strtolower($value) == strtolower($value2))
+							$keywords[$key] = ""; //If it equals to stop_word which have no meaning, don't calculate it as keywords.
+					}
+				}
+
+				foreach ($keywords as $value) {
+				    $this->calculateTrend(ucfirst($value)); //upcast first letter
+				}
+
+             }
+
 			}
 			
+		}
+
+		public function calculateTrend($term){
+
+			if($term != ''){
+
+				$query = mysqli_query($this->con, "SELECT * FROM trend WHERE title = '$term'");
+
+				if(mysqli_num_rows($query) == 0)
+					$insert_query = mysqli_query($this->con, "INSERT INTO trend(title, hits) VALUES('$term', '1')");
+				else
+					$insert_query = mysqli_query($this->con, "UPDATE trend SET hits = hits + 1 WHERE title = '$term'");
+
+			}
 		}
 
 		public function loadPostsFriends($data, $limit){
@@ -80,6 +169,7 @@
 					$body = $row['body'];
 					$added_by = $row['added_by'];
 					$date_time = $row['date_added'];
+					$imagePath = $row['image'];
 
 					//Prepare user_to string so it can be included even if not posted to a user
 
@@ -218,6 +308,16 @@
 
 						}
 
+					if($imagePath != "") {
+						$imageDiv = "<br>
+									<div class='postedImage'>
+										<img src='$imagePath'>
+									</div>";
+					}
+					else {
+						$imageDiv = "";
+					}
+
 						$str .= "<div class ='status_post' onClick = 'javascript:toggle$id()'>
 									<div class = 'post_profile_pic'>
 										<img src = '$profile_pic' width = 50>
@@ -228,6 +328,8 @@
 									</div>
 									<div id = 'post_body'>
 										$body
+										<br>
+										$imageDiv
 										<br>
 										<br>
 
