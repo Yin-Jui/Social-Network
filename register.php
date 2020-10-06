@@ -37,7 +37,7 @@ require 'includes/form_handlers/login_handler.php';
 
 			<div class = "login_header">
 				
-				<h1>JimBaz</h1>
+				<h1>Jimmy's Scocial Website</h1>
 				<h2>Log in or sign up below!<h2>
 			</div>
 

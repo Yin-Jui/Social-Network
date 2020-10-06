@@ -314,6 +314,7 @@
 										<img src='$imagePath'>
 									</div>";
 					}
+
 					else {
 						$imageDiv = "";
 					}
@@ -551,7 +552,7 @@
 
 									bootbox.confirm("Are you sure you want to delete the post?", function(result){ //sending the result to delete_post.php
 
-										$.post("includes/form_handlers/delete_post.php?post_id=<?php echo $id; ?>", {result:result});
+										$.post("includes/form_handlers/delete_post.php?post_id=<?php echo $id;?>",{result:result});
 
 										if(result) location.reload();
 									});

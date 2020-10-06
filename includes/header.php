@@ -45,7 +45,7 @@ if(isset($_SESSION['username'])){
  		
  		<div class = "logo">
  			
- 			<a href="index.php">JimBaz</a>
+ 			<a href="index.php">Jimmy's Social Network</a>
  		</div>
 
  		<div class = "search">
