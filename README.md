@@ -14,7 +14,7 @@
 * Index page shows the basic information of the logged in user and posts from the user and his friends. In index page, users can post article, including youtube videos, images, and words. Also, trending keywords was shown below the person information, which is calculated based on all users' posts. 
   
 ##  <span style="color:blue">**Setting page**
-<a href="https://ibb.co/dmM8Jd8"><img src="https://i.ibb.co/nPmx8Hx/setting-page.png" alt="setting-page" border="0" width = 550></a><a href="https://ibb.co/G5cSqQw"><img src="https://i.ibb.co/KrFvJxZ/Screen-Shot-2020-10-05-at-10-31-38-PM.png" alt="Screen-Shot-2020-10-05-at-10-31-38-PM" border="0" height = 300 width = 380></a>
+<a href="https://ibb.co/dmM8Jd8"><img src="https://i.ibb.co/nPmx8Hx/setting-page.png" alt="setting-page" border="0" width = 550></a><a href="https://ibb.co/G5cSqQw"><img src="https://i.ibb.co/KrFvJxZ/Screen-Shot-2020-10-05-at-10-31-38-PM.png" alt="Screen-Shot-2020-10-05-at-10-31-38-PM" border="0" height = 270 width = 380 align=right></a>
  
 In setting page, users can update basic information, upload profile picture, change password, and close the account.
  
