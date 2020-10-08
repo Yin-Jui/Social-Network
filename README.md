@@ -2,8 +2,9 @@
 
 ##  <span style="color:blue">**Register and LogIn page**
 
-<a href="https://ibb.co/bmHn6v1"><img src="https://i.ibb.co/jfVF8wh/register.png" alt="register" border="0" width=450 height = 330></a><a href="https://ibb.co/RbYvPsJ"><img src="https://i.ibb.co/vqVwmTM/login.png" alt="login" border="0" width=450 height = 330 align=right></a><br />.  <a target='_blank' href='https://imgbb.com/'></a><br />
+<a href="https://ibb.co/vJKFx7Y"><img src="https://i.ibb.co/P5fLZ7Q/Screen-Shot-2020-10-07-at-5-37-46-PM.png" alt="Screen-Shot-2020-10-07-at-5-37-46-PM" border="0" height = 330 width = 450></a>
 
+<a href="https://ibb.co/y8vGNvY"><img src="https://i.ibb.co/4jv9FvY/Screen-Shot-2020-10-07-at-5-37-58-PM.png" alt="Screen-Shot-2020-10-07-at-5-37-58-PM" border="0" height = 330 width = 450 float:right></a>
 
 
 * Users can register an account or log in to index page.
